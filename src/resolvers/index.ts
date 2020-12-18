@@ -1,14 +1,15 @@
-import { Players } from '../entities/Players';
-import { Resolver, Query } from 'type-graphql';
+import { Pitchers } from '../entities/Pitchers';
+import { Resolver, Query, Arg, Int } from 'type-graphql';
 
 @Resolver()
-export class PlayersResolver {
-    @Query(() => [Players])
-        players() {
-            return Players.find()
-        }
-    /* @Query(() => Players)
-        getPlayer(@Arg("position") position: string) {
-            return Players.findOne({ where: { position } })
-        } */
+export class PitchersResolver {
+    @Query(() => [Pitchers])
+    pitchers() {
+        return Pitchers.find()
+    }
+
+    @Query(() => Pitchers, { nullable: true })
+    pitcher(@Arg("playerid", () => Int) playerid: number): Promise<Pitchers | undefined> {
+        return Pitchers.findOne(playerid)
+    }
 }

@@ -3,8 +3,8 @@ import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
 import { buildSchema } from 'type-graphql'
 import { createConnection } from 'typeorm'
-import { Players } from './entities/Players'
-import { PlayersResolver } from "./resolvers";
+import { Pitchers } from './entities/Pitchers'
+import { PitchersResolver } from "./resolvers";
 
 const main = async () => {
     createConnection({
@@ -13,9 +13,9 @@ const main = async () => {
         port: 5432,
         username: "edwardzzz",
         password: "Baseball29",
-        database: "rosterbox",
+        database: "basebook",
         entities: [
-            Players
+            Pitchers
         ],
         synchronize: false,
         logging: true
@@ -25,7 +25,7 @@ const main = async () => {
 
     const apolloServer = new ApolloServer({
         schema: await buildSchema({
-            resolvers: [PlayersResolver],
+            resolvers: [PitchersResolver],
             validate: false
         })
     })
@@ -33,7 +33,7 @@ const main = async () => {
     apolloServer.applyMiddleware({ app })
 
     app.listen(4000, () => {
-        console.log('server started on localhost:4000')
+        console.log('server started on localhost:4000/graphql')
     })
 }
 

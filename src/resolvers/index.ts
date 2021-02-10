@@ -8,7 +8,7 @@ export class PitchersResolver {
         return Pitchers.find()
     }
 
-    @Query(() => Pitchers, { nullable: true })
+    @Query(() => Pitchers, { nullable: false })
     pitcher(@Arg("playerid", () => Int) playerid: number): Promise<Pitchers | undefined> {
         return Pitchers.findOne(playerid)
     }

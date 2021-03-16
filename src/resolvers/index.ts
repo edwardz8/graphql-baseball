@@ -9,7 +9,7 @@ export class PitchersResolver {
     }
 
     @Query(() => Pitchers, { nullable: false })
-    pitcher(@Arg("playerid", () => Int) playerid: number): Promise<Pitchers | undefined> {
-        return Pitchers.findOne(playerid)
+    pitcher(@Arg("id", () => Int) id: number): Promise<Pitchers | undefined> {
+        return Pitchers.findOne(id)
     }
 }

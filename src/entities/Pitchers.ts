@@ -12,7 +12,7 @@ export class Pitchers extends BaseEntity {
   
   @Field(() => ID)
   @PrimaryColumn()
-  playerid: number;
+  id: number;
 
   @Field(() => String)
   @Column()
@@ -24,7 +24,7 @@ export class Pitchers extends BaseEntity {
 
   @Field({nullable: true})
   @Column()
-  positions: string;
+  wins: number;
 
   @Field({nullable: true})
   @Column()
@@ -33,10 +33,6 @@ export class Pitchers extends BaseEntity {
   @Field({nullable: true})
   @Column()
   strikeouts: number;
-
-  @Field({nullable: true})
-  @Column()
-  wins: number;
 
   @Field({nullable: true})
   @Column()
@@ -64,6 +60,14 @@ export class Pitchers extends BaseEntity {
 
   @Field({nullable: true})
   @Column()
+  walks_per_nine: number;
+
+  @Field({nullable: true})
+  @Column()
+  ks_per_nine: number;
+
+  @Field({nullable: true})
+  @Column()
   home_runs_allowed: number;
 
   @Field({nullable: true})
@@ -76,9 +80,26 @@ export class Pitchers extends BaseEntity {
 
   @Field({nullable: true})
   @Column()
+  fip: number;
+
+  @Field({nullable: true})
+  @Column()
+  war: number;
+
+  @Field({nullable: true})
+  @Column()
   losses: number;
 
   @Field({nullable: true})
   @Column()
-  complete_games: number;
+  ra_nine_war: number;
+
+  @Field({nullable: true})
+  @Column()
+  adp: number;
 }
+
+
+/* 
+era DECIMAL NULL,
+*/

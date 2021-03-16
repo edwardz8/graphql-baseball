@@ -11,9 +11,9 @@ const main = async () => {
         type: "postgres",
         host: "localhost",
         port: 5432,
-        username: "edwardzzz",
+        username: "edwardz_8",
         password: "Baseball29",
-        database: "basebook",
+        database: "baseball_2021",
         entities: [
             Pitchers
         ],
